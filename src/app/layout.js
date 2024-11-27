@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "../components/Header"; // Adjust path if needed
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* Include Header (Navbar) */}
+        <Header />
+
+        {/* Main content, add padding-top to prevent overlap with fixed navbar */}
+        <main className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   );
